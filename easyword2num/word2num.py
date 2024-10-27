@@ -4,7 +4,6 @@ import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from functools import cached_property
-from sys import version_info
 from typing import Any, Callable, List, Literal, Union
 
 
@@ -14,13 +13,7 @@ class UninterpretableNumberError(ValueError):
     pass
 
 
-def dataclasss_backport(cls: Any) -> Any:
-    if version_info < (3, 10):
-        return dataclass(cls)
-    return dataclass(frozen=True, kw_only=True)(cls)  # type: ignore
-
-
-@dataclasss_backport
+@dataclass
 class NumberSystemToken:
     """Represents a token in a number system, with specific properties and rules.
 
