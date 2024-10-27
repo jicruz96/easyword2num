@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "easyword2num"
+version = "0.1.0"
+description = "Convert numbers expressed in English to its numeric value."
+authors = ["J.I. Cruz <ji@jicruz.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+ruff = "^0.7.1"
+mypy = "^1.13.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
