@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "easyword2num"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert numbers expressed in English to its numeric value."
 authors = ["J.I. Cruz <ji@jicruz.com>"]
 license = "MIT"
