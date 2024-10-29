@@ -242,7 +242,7 @@ class AmericanNumberSystemVocabulary(NumberSystemVocabulary):
                     word="zero",
                     number=0,
                     allowed_position="anywhere",  # not really... check additional validation
-                    is_unique=True,
+                    is_unique=False,
                     is_usable_as_decimal=True,
                     is_unit=False,
                     is_usable_as_regular_denominator=False,
@@ -262,7 +262,7 @@ class AmericanNumberSystemVocabulary(NumberSystemVocabulary):
                         word=zero_word,
                         number=0,
                         allowed_position="anywhere",  # not really... check additional validation
-                        is_unique=True,
+                        is_unique=False,
                         is_usable_as_decimal=True,
                         is_unit=False,
                         is_usable_as_regular_denominator=False,
@@ -271,8 +271,16 @@ class AmericanNumberSystemVocabulary(NumberSystemVocabulary):
                             # "oh" or "o'" is ok if it's part of a numerical sequence.
                             # we can check if we're amidst a numerical sequence by checking
                             # if the previous and next tokens are standalone.
-                            (i == 0 or arr[i - 1].is_standalone)
-                            and ((i == len(arr) - 1) or arr[i + 1].is_standalone)
+                            (
+                                i == 0
+                                or arr[i - 1].is_standalone
+                                or arr[i - 1].word in self.decimal_indicators
+                            )
+                            and (
+                                (i == len(arr) - 1)
+                                or arr[i + 1].is_standalone
+                                or arr[i + 1].word in self.decimal_indicators
+                            )
                         ),
                     )
                     for zero_word in ["oh", "o"]
