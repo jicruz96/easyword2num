@@ -55,6 +55,9 @@ from easyword2num import UninterpretableNumberError, word2num
         ("a hundred thousand", 100_000),
         ("twenty-one", 21),
         ("twenty-one point five", 21.5),
+        ("negative one point zero zero one", -1.001),
+        ("negative one point oh", -1.0),
+        ("negative one point oh oh one", -1.001),
     ],
 )
 def test_word2num_standard_cases(text: str, expected: float):
